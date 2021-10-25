@@ -11,19 +11,14 @@ figure; hold on;
 %               2D plot, using the option 'k+' for the positive
 %               examples and 'ko' for the negative examples.
 %
+% The function find finds all the indexes
+pos = find(y==1);, neg = find(y==0);
+% This line takes the ones where the student pass from the first column on the x
+% axis against the second column in the y axis
+plot(X(pos,1), X(pos, 2), 'k+', 'LineWidth',2, 'MarkerSize', 7);
+% MarkerFaceColor fills the o with the color 'y' yellow 'MarkerSize' means the size
 
-pos = find(y==1);
-neg = find(y==0);
-
-plot(X(pos,1),X(pos,2),'g+'); % g+ = plus signs that are green
-
-hold on;
-
-plot(X(neg,1),X(neg,2),'ro'); % ro = o signs that are red
-
-
-
-
+plot(X(neg, 1), X(neg, 2), 'ko', 'MarkerFaceColor', 'y', 'MarkerSize', 7);
 
 
 

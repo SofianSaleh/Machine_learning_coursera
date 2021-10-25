@@ -11,16 +11,16 @@ figure; % open a new figure window
 %               the "xlabel" and "ylabel" commands. Assume the 
 %               population and revenue data have been passed in
 %               as the x and y arguments of this function.
-%
+%               ylabel('Profit in $10,000s');
+%               xlabel('Population in the city in 10,000s');
 % Hint: You can use the 'rx' option with plot to have the markers
 %       appear as red crosses. Furthermore, you can make the
 %       markers larger by using plot(..., 'rx', 'MarkerSize', 10);
 
 
-plot(x,y,'rx','MarkSize', 10)
-
-xlabel('population')
-ylabel('revenue')
+plot(x, y, 'rx', 'MarkerSize',10) % 'rx' means red Xs
+ylabel('Profit in $10,000s')
+xlabel('Population in the city in 10,000s')
 
 % ============================================================
 
