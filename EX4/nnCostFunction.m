@@ -79,6 +79,37 @@ J = J + Reg;
 %         Hint: We recommend implementing backpropagation using a for-loop
 %               over the training examples if you are implementing it for the 
 %               first time.
+
+for t=1:m
+  % Step 1
+  a1 = X(t,:); % already have the bias from the code above
+  z2 = Theta1 * a1';
+  a2 = sigmoid(z2);
+  
+  a2 = [1; a2]; %adding bias to the vector adding it at the top
+  % Theta2 size = 10*26 a2 = 26*1
+  z3 = Theta2 * a2;
+  a3 = sigmoid(z3); % final Layer activation 10*1
+
+  % step 2 
+  
+  delta_3 = a3 - y_new(:,t);
+  z2 = [1;z2]; %adding bias 26*1
+  
+  % step 3
+  %size(Theta2'), size(delta_3), size(sigmoidGradient(z2)), size(z2)
+  delta_2 = (Theta2'* delta_3).* sigmoidGradient(z2); %((26*10)*(10*1))=(26*1)
+  
+  % step 4
+  delta_2 = delta_2(2:end); % 25*1
+  
+  Theta2_grad = Theta2_grad + delta_3 * a2';
+  Theta1_grad = Theta1_grad + delta_2 * a1;
+  end
+
+  Theta1_grad = (1/m) * Theta1_grad;
+  Theta2_grad = (1/m) * Theta2_grad;
+
 %
 % Part 3: Implement regularization with the cost function and gradients.
 %
