@@ -119,8 +119,8 @@ for t=1:m
 %               and Theta2_grad from Part 2.
 %
 
-Theta1_grad(:, 2:end) = Theta1_grad(:,2:end) + (lambda/m)*(Theta1_grad(:, 2:end));
-Theta2_grad(:, 2:end) = Theta2_grad(:,2:end) + (lambda/m)*(Theta2_grad(:, 2:end));
+Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + ((lambda/m) * Theta1(:, 2:end));
+Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + ((lambda/m) * Theta2(:, 2:end));
 
 % -------------------------------------------------------------
 
